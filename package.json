@@ -50,6 +50,7 @@
     "remark-math": "^6.0.0"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "^4.34.9"
+    "@rollup/rollup-linux-x64-gnu": "^4.34.9",
+    "@pagefind/linux-x64": "1.4.0"
   }
 }
