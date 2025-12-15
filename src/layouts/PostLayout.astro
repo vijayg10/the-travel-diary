@@ -1,0 +1,73 @@
+---
+import Main from "../layouts/MainLayout.astro";
+import Markdown from "../components/Markdown.astro";
+import CopyRight from "../components/misc/CopyRight.astro";
+
+interface Props {
+  title?: string;
+  subTitle?: string;
+  bannerImage?: string;
+  banners?: string[];
+  published?: Date;
+  traveled?: Date;
+  wip?: boolean;
+  license?: {
+    name: string;
+    url?: string;
+  };
+  author?: string;
+  sourceLink?: string;
+}
+
+const {
+  title,
+  subTitle,
+  bannerImage,
+  banners,
+  published,
+  traveled,
+  wip,
+  license,
+  author,
+  sourceLink,
+} = Astro.props;
+---
+
+<Main title={title} subTitle={subTitle} bannerImage={bannerImage} banners={banners}>
+  <!-- <Fragment set:html={tocHTMLString} /> -->
+  <div class="article-wrapper">
+    <div class="article">
+      { wip && (
+        <div role="alert" class="mb-6 rounded-xl border border-yellow-300 bg-yellow-50 px-4 py-3 text-yellow-900">
+          <span class="mr-2">⚠️</span>
+          <span class="font-semibold text-base md:text-lg">This blog is under writing.</span>
+        </div>
+      )}
+      <Markdown>
+        <slot />
+      </Markdown>
+      {
+        published && title && (
+          <CopyRight
+            title={title}
+            published={published}
+            traveled={traveled}
+            license={license}
+            author={author}
+            sourceLink={sourceLink}
+          />
+        )
+      }
+    </div>
+  </div>
+</Main>
+
+<style>
+  .article-wrapper {
+    @apply mx-3 rounded-2xl bg-[var(--card-color)] px-5 py-6 lg:mx-0 lg:px-10 lg:py-9;
+  }
+  .article {
+    @apply flex flex-col;
+    font-size: var(--primary-font);
+  }
+</style>

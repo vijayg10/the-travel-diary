@@ -1,0 +1,58 @@
+---
+import Main from "../../layouts/MainLayout.astro";
+import PostCard from "../../components/PostCard.astro";
+import I18nKeys from "../../locales/keys";
+import { i18n } from "../../locales/translation";
+import { GetCategories } from "../../utils/content";
+import { getCollection } from "astro:content";
+import { IdToSlug } from "../../utils/hash";
+
+export async function getStaticPaths() {
+  const categories = await GetCategories();
+  const categoryList = Array.from(categories.keys());
+  return categoryList.map((category) => ({
+    params: { category: category },
+  }));
+}
+
+const categories = await GetCategories();
+const { category } = Astro.params;
+const categoryName = categories.get(category)!.name;
+
+// Get full post data for this category
+const allPosts = await getCollection("posts");
+const categoryPosts = allPosts.filter((post) => {
+  const postCategorySlug = IdToSlug(post.data.category || "");
+  return postCategorySlug === category;
+});
+---
+
+<Main title={categoryName} subTitle={i18n(I18nKeys.pages_categories_archive)}>
+  <div class="space-y-8">
+    <div class="w-full space-y-4">
+      {
+        categoryPosts.map((entry, index) => (
+          <div
+            class="onload-animation"
+            style={`animation-delay: calc(var(--onload-animation-delay) + ${index + 1} * var(--onload-animation-interval));`}
+          >
+            <PostCard
+              id={entry.id}
+              title={entry.data.title}
+              published={entry.data.published}
+              traveled={entry.data.traveled}
+              category={entry.data.category}
+              tags={entry.data.tags}
+              description={entry.data.description}
+              image={entry.data.cover}
+              thumbnail={entry.data.thumbnail}
+              readingMetadata={
+                (entry.rendered!.metadata as any).frontmatter.readingMetadata
+              }
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Main>
