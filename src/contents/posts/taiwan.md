@@ -6,8 +6,7 @@ description: A delightful experience with exceptional cuisine and unique lifesty
 thumbnail: /banners/taiwan1.jpg
 banners:
   - /banners/taiwan1.jpg
-  - /banners/taiwan2.jpg
-  - /banners/taiwan3.jpg
+  - /banners/taiwan4.jpg
 tags: [Food, Culture, City]
 category: Food & Culture
 draft: false

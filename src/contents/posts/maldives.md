@@ -6,7 +6,6 @@ description: The best beach destination undoubtedly with turquoise waters and pr
 thumbnail: /banners/maldives1.JPG
 banners:
   - /banners/maldives1.JPG
-  - /banners/maldives2.JPG
 tags: [Beach, Snorkeling, Islands]
 category: Beach Destinations
 draft: false

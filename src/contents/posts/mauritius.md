@@ -6,9 +6,6 @@ description: Beautiful beaches that don't quite match up to the Maldives experie
 thumbnail: /banners/mauritius1.JPG
 banners:
   - /banners/mauritius1.JPG
-  - /banners/mauritius2.JPG
-  - /banners/mauritius3.JPG
-  - /banners/mauritius4.JPG
 tags: [Beach, Islands]
 category: Beach Destinations
 draft: false

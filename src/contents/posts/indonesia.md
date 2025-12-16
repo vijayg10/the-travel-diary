@@ -3,14 +3,10 @@ title: Indonesia - Beyond Bali
 published: 2025-11-29
 traveled: 2022-12-25
 description: Discover the real beauty of Indonesia in Lombok and Gili Islands, beyond the westernized beaches of Bali.
-thumbnail: /banners/indonesia1.jpeg
+thumbnail: /banners/indonesia2.jpeg
 banners:
-  - /banners/indonesia1.jpeg
   - /banners/indonesia2.jpeg
-  - /banners/indonesia3.jpeg
-  - /banners/indonesia4.jpeg
   - /banners/indonesia5.jpeg
-  - /banners/indonesia6.jpeg
 tags: [Beach, Islands, Nature]
 category: Beach Destinations
 draft: false
